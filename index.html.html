@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sudhir — Creative Designer & Aspiring Digital Creator</title>
+<meta name="description" content="Sudhir is a creative designer and aspiring digital creator. Branding, website design and content strategy for meaningful brands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#14305f; --navy-2:#1d4180; --teal:#7cc9c9; --teal-2:#a9dcd6; --peach:#f4a77b; --peach-2:#f8cfae;
+  --bg:#fbf8f4; --bg-2:#ffffff; --ink:#14233f; --muted:#5b6a80; --line:rgba(20,48,95,.12);
+  --shadow:0 20px 50px -20px rgba(20,48,95,.28); --radius:22px;
+  --grad:linear-gradient(160deg,var(--teal) 0%,var(--teal-2) 35%,var(--peach-2) 70%,var(--peach) 100%);
+}
+[data-theme="dark"]{
+  --bg:#0c1426; --bg-2:#121d36; --ink:#eef3fb; --muted:#9fb0cc; --line:rgba(255,255,255,.12);
+  --shadow:0 20px 50px -20px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;overflow-x:hidden;transition:background .3s,color .3s}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.1;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{width:min(1160px,92%);margin-inline:auto}
+section{padding:96px 0;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-2);margin-bottom:16px}
+[data-theme="dark"] .eyebrow{color:var(--teal)}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--peach);border-radius:2px}
+.sec-title{font-size:clamp(2rem,4.2vw,3.1rem);margin-bottom:16px}
+.sec-sub{color:var(--muted);max-width:620px}
+.center{text-align:center}.center .sec-sub{margin-inline:auto}.center .eyebrow{justify-content:center}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:.95rem;border:2px solid transparent;cursor:pointer;font-family:inherit;transition:transform .25s,box-shadow .25s,background .25s,color .25s}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 10px 24px -10px rgba(20,48,95,.7)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 30px -10px rgba(20,48,95,.8);background:var(--navy-2)}
+[data-theme="dark"] .btn-primary{background:var(--peach);color:#1a1209}
+.btn-ghost{border-color:var(--navy);color:var(--navy)}
+.btn-ghost:hover{background:var(--navy);color:#fff;transform:translateY(-3px)}
+[data-theme="dark"] .btn-ghost{border-color:var(--teal);color:var(--teal)}
+[data-theme="dark"] .btn-ghost:hover{background:var(--teal);color:#0c1426}
+.btn .arr{transition:transform .25s}.btn:hover .arr{transform:translateX(4px)}
+
+/* nav */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s,padding .3s;padding:18px 0}
+header.scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:10px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.5rem;display:flex;align-items:center;gap:10px}
+.logo i{width:34px;height:34px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-style:normal;color:var(--navy);font-size:1rem}
+.menu{display:flex;gap:30px;list-style:none;align-items:center}
+.menu a{font-size:.92rem;font-weight:500;color:var(--muted);position:relative;padding:4px 0;transition:color .2s}
+.menu a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--peach);transition:width .25s}
+.menu a:hover,.menu a.active{color:var(--ink)}.menu a:hover::after,.menu a.active::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.icon-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--bg-2);cursor:pointer;display:grid;place-items:center;font-size:1.05rem;color:var(--ink);transition:transform .25s}
+.icon-btn:hover{transform:rotate(18deg)}
+.burger{display:none}
+.nav .btn{padding:10px 20px;font-size:.88rem}
+
+/* hero */
+.hero{padding:150px 0 90px;background:radial-gradient(700px 400px at 85% 10%,rgba(124,201,201,.35),transparent 60%),radial-gradient(600px 400px at 0% 90%,rgba(244,167,123,.25),transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:10px;background:var(--bg-2);border:1px solid var(--line);padding:8px 16px;border-radius:999px;font-size:.82rem;font-weight:600;margin-bottom:24px;box-shadow:var(--shadow)}
+.pill b{width:9px;height:9px;border-radius:50%;background:#3fcf8e;box-shadow:0 0 0 0 rgba(63,207,142,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(63,207,142,0)}100%{box-shadow:0 0 0 0 rgba(63,207,142,0)}}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.4rem);margin-bottom:22px}
+.hero h1 .swap{display:inline-block;background:linear-gradient(90deg,var(--navy-2),var(--teal) 55%,var(--peach));-webkit-background-clip:text;background-clip:text;color:transparent;transition:opacity .35s,transform .35s;padding-right:.05em}
+[data-theme="dark"] .hero h1 .swap{background:linear-gradient(90deg,var(--teal),var(--peach));-webkit-background-clip:text;background-clip:text}
+.hero h1 .swap.out{opacity:0;transform:translateY(12px)}
+.hero p.lead{color:var(--muted);font-size:1.08rem;max-width:540px;margin-bottom:12px}
+.hero .tagline{font-weight:700;font-size:.8rem;letter-spacing:.2em;color:var(--navy-2);margin-bottom:34px;text-transform:uppercase}
+[data-theme="dark"] .hero .tagline{color:var(--peach)}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px}
+.stats{display:flex;gap:34px;margin-top:46px;flex-wrap:wrap}
+.stats div b{font-family:'Fraunces',serif;font-size:1.7rem;display:block}
+.stats div span{font-size:.82rem;color:var(--muted)}
+.portrait{position:relative;max-width:440px;margin-inline:auto}
+.frame{aspect-ratio:4/5;border-radius:200px 200px 28px 28px;background:var(--grad);overflow:hidden;box-shadow:var(--shadow);position:relative;display:grid;place-items:end center;animation:float 7s ease-in-out infinite}
+.frame img{width:100%;height:100%;object-fit:cover;object-position:top}
+.frame .mono{position:absolute;inset:0;display:none;place-items:center;font-family:'Fraunces',serif;font-size:9rem;color:var(--navy);opacity:.85}
+.frame.nophoto .mono{display:grid}.frame.nophoto img{display:none}
+@keyframes float{50%{transform:translateY(-12px)}}
+.badge{position:absolute;background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:12px 16px;box-shadow:var(--shadow);font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:10px;animation:float 6s ease-in-out infinite}
+.badge span{font-size:1.3rem}
+.badge.b1{left:-34px;top:18%;animation-delay:-2s}.badge.b2{right:-26px;bottom:14%;animation-delay:-4s}
+.blob{position:absolute;z-index:-1;border-radius:50%;filter:blur(2px)}
+.blob.a{width:120px;height:120px;background:var(--peach);right:-30px;top:-20px;opacity:.55}
+.blob.b{width:80px;height:80px;background:var(--navy);left:-20px;bottom:30px;opacity:.15}
+
+/* marquee */
+.marquee{overflow:hidden;border-block:1px solid var(--line);padding:18px 0;background:var(--bg-2)}
+.track{display:flex;gap:48px;width:max-content;animation:slide 28s linear infinite}
+.track span{font-family:'Fraunces',serif;font-size:1.3rem;white-space:nowrap;color:var(--muted);display:flex;align-items:center;gap:48px}
+.track span::after{content:"✦";color:var(--peach);font-size:1rem}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.about-visual{position:relative;aspect-ratio:1;border-radius:var(--radius);background:var(--grad);box-shadow:var(--shadow);overflow:hidden}
+.about-visual .shape{position:absolute;border-radius:50%}
+.about-visual .s1{width:55%;height:55%;background:var(--navy);left:-8%;bottom:-8%}
+.about-visual .s2{width:38%;height:38%;border:6px solid #fff;right:12%;top:14%;opacity:.8}
+.about-visual .s3{width:22%;height:22%;background:var(--peach);right:22%;bottom:18%}
+.about-visual q{position:absolute;left:8%;right:8%;top:50%;transform:translateY(-50%);font-family:'Fraunces',serif;font-size:clamp(1.2rem,2.4vw,1.7rem);color:var(--navy);font-weight:600;quotes:"“" "”";text-shadow:0 1px 0 rgba(255,255,255,.4)}
+.about p{color:var(--muted);margin-bottom:16px}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.mini{background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:20px;transition:transform .3s,box-shadow .3s}
+.mini:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.mini .ico{width:42px;height:42px;border-radius:12px;background:var(--grad);display:grid;place-items:center;font-size:1.2rem;margin-bottom:12px}
+.mini h3{font-family:'Plus Jakarta Sans';font-size:.98rem;margin-bottom:6px;font-weight:700}
+.mini p{font-size:.84rem;margin:0}
+
+/* work */
+.work{background:var(--bg-2)}
+.work-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+.filters{display:flex;gap:10px;flex-wrap:wrap}
+.chip{padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font:600 .85rem 'Plus Jakarta Sans';cursor:pointer;transition:.25s}
+.chip:hover{color:var(--ink);border-color:var(--navy)}
+.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+[data-theme="dark"] .chip.on{background:var(--peach);color:#1a1209;border-color:var(--peach)}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.project{border-radius:var(--radius);overflow:hidden;background:var(--bg);border:1px solid var(--line);cursor:pointer;transition:transform .35s,box-shadow .35s,opacity .3s}
+.project:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.project.hide{display:none}
+.art{aspect-ratio:16/10;position:relative;overflow:hidden;display:grid;place-items:center}
+.art .word{font-family:'Fraunces',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:700;position:relative;z-index:2;transition:transform .5s}
+.project:hover .art .word{transform:scale(1.08)}
+.art .o{position:absolute;border-radius:50%;transition:transform .6s}
+.project:hover .art .o{transform:scale(1.2) rotate(8deg)}
+.art.lume{background:linear-gradient(135deg,#f6d9d0,#f4b9a0)}.art.lume .word{color:#5a2a22;letter-spacing:.2em;font-weight:600}
+.art.lume .o1{width:240px;height:240px;background:rgba(255,255,255,.4);right:-60px;top:-80px}.art.lume .o2{width:120px;height:120px;border:3px solid rgba(90,42,34,.35);left:8%;bottom:-30px}
+.art.oak{background:linear-gradient(135deg,#dfe8d4,#b5cfa8)}.art.oak .word{color:#27422a}
+.art.oak .o1{width:60%;height:70%;background:rgba(255,255,255,.55);border-radius:14px;bottom:-24%;box-shadow:0 20px 40px -20px rgba(0,0,0,.3)}.art.oak .o2{width:70px;height:70px;background:#27422a;opacity:.9;right:10%;top:12%}
+.art.solea{background:linear-gradient(135deg,#fff3d6,#f7cf8f)}.art.solea .word{color:#6b4410;font-style:italic}
+.art.solea .o1{width:200px;height:200px;background:radial-gradient(circle,#fff 0,rgba(255,255,255,0) 70%);left:-30px;top:-50px}.art.solea .o2{width:90px;height:90px;background:#f0a63a;opacity:.7;right:12%;bottom:12%}
+.art.verdant{background:linear-gradient(135deg,#1d4a40,#2f7a62)}.art.verdant .word{color:#e6f7ea}
+.art.verdant .o1{width:220px;height:220px;border:2px solid rgba(255,255,255,.25);right:-40px;bottom:-70px}.art.verdant .o2{width:120px;height:120px;background:rgba(124,201,160,.4);left:8%;top:-30px}
+.info{padding:22px 24px 26px;display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+.info h3{font-size:1.25rem;font-family:'Plus Jakarta Sans';font-weight:700;margin-bottom:6px}
+.info p{font-size:.9rem;color:var(--muted)}
+.tag{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--grad);color:var(--navy);padding:5px 12px;border-radius:999px;white-space:nowrap}
+.work-cta{text-align:center;margin-top:40px}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.svc{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;position:relative;overflow:hidden;transition:transform .35s,box-shadow .35s;display:flex;flex-direction:column}
+.svc::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--grad)}
+.svc:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.svc .num{font-family:'Fraunces',serif;color:var(--peach);font-size:1rem;font-weight:700;margin-bottom:14px}
+.svc h3{font-size:1.5rem;margin-bottom:10px}
+.svc p{color:var(--muted);font-size:.93rem;margin-bottom:22px;flex:1}
+.price{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;margin-bottom:20px}
+.price small{font-family:'Plus Jakarta Sans';font-size:.8rem;color:var(--muted);font-weight:500}
+.svc.feat{background:var(--navy);color:#fff;border-color:var(--navy)}
+.svc.feat p,.svc.feat .price small{color:rgba(255,255,255,.75)}
+.svc.feat .btn-primary{background:#fff;color:var(--navy)}
+.svc-cta{text-align:center;margin-top:40px}
+
+/* clients + testimonials */
+.soft{background:var(--bg-2)}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.slot{aspect-ratio:2/1;border:2px dashed var(--line);border-radius:18px;display:grid;place-items:center;color:var(--muted);font-size:.85rem;font-weight:600;transition:.3s}
+.slot:hover{border-color:var(--peach);color:var(--ink);transform:translateY(-4px)}
+.testi{max-width:760px;margin:44px auto 0;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:44px 40px;text-align:center;position:relative;box-shadow:var(--shadow)}
+.testi::before{content:"“";position:absolute;top:-6px;left:50%;transform:translateX(-50%);font-family:'Fraunces',serif;font-size:7rem;line-height:1;color:var(--peach);opacity:.5}
+.testi p{color:var(--muted);position:relative}
+.testi strong{display:block;font-family:'Fraunces',serif;font-size:1.35rem;margin-bottom:10px;color:var(--ink)}
+.stars{color:var(--peach);letter-spacing:6px;margin-top:18px;opacity:.5}
+
+/* CTA */
+.cta{padding:70px 0}
+.cta-box{background:var(--grad);border-radius:36px;padding:70px 40px;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.cta-box::before,.cta-box::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.3)}
+.cta-box::before{width:260px;height:260px;left:-80px;top:-90px}.cta-box::after{width:180px;height:180px;right:-50px;bottom:-60px;background:rgba(20,48,95,.12)}
+.cta-box h2{font-size:clamp(2rem,4.4vw,3.2rem);color:var(--navy);margin-bottom:14px;position:relative}
+.cta-box p{color:#1f3558;max-width:560px;margin:0 auto 28px;position:relative}
+.cta-box .hint{display:block;margin-top:22px;font-family:'Fraunces',serif;font-style:italic;color:var(--navy);position:relative}
+.cta-box .btn{position:relative}
+.cta-box .btn-primary{background:var(--navy);color:#fff}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;margin-top:48px}
+.c-item{display:flex;gap:16px;align-items:center;background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin-bottom:14px;transition:.3s}
+.c-item:hover{transform:translateX(6px);border-color:var(--peach)}
+.c-item .ico{width:46px;height:46px;border-radius:14px;background:var(--grad);display:grid;place-items:center;font-size:1.2rem;flex:none}
+.c-item small{display:block;color:var(--muted);font-size:.78rem}.c-item b{font-size:.98rem;word-break:break-all}
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.socials a{padding:10px 18px;border-radius:999px;border:1px solid var(--line);font-size:.86rem;font-weight:600;background:var(--bg-2);transition:.25s}
+.socials a:hover{background:var(--navy);color:#fff;border-color:var(--navy);transform:translateY(-3px)}
+[data-theme="dark"] .socials a:hover{background:var(--peach);color:#1a1209;border-color:var(--peach)}
+form.card{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:6px}
+.field input,.field textarea,.field select{width:100%;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;transition:border .2s,box-shadow .2s}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px rgba(124,201,201,.25)}
+.field textarea{min-height:120px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.note{font-size:.8rem;color:var(--muted);margin-top:12px}
+
+/* newsletter */
+.news{background:var(--navy);color:#fff;padding:80px 0;overflow:hidden}
+.news-in{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.news h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:10px}
+.news p{color:rgba(255,255,255,.75)}
+.nform{display:flex;gap:10px;background:rgba(255,255,255,.1);padding:8px;border-radius:999px;border:1px solid rgba(255,255,255,.2)}
+.nform input{flex:1;background:transparent;border:0;color:#fff;padding:12px 18px;font:inherit;min-width:0}
+.nform input:focus{outline:none}.nform input::placeholder{color:rgba(255,255,255,.55)}
+.nform .btn{background:var(--peach);color:#1a1209;padding:12px 26px}
+.msg{margin-top:12px;font-size:.88rem;min-height:1.3em}
+
+/* footer */
+footer{padding:60px 0 30px;border-top:1px solid var(--line)}
+.f-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center;margin-bottom:34px}
+.f-top .tg{font-size:.72rem;letter-spacing:.2em;font-weight:700;color:var(--muted);margin-top:6px}
+.f-links{display:flex;gap:26px;flex-wrap:wrap;list-style:none}
+.f-links a{color:var(--muted);font-size:.92rem;transition:color .2s}.f-links a:hover{color:var(--ink)}
+.f-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px;font-size:.84rem;color:var(--muted)}
+.f-bot a{margin-left:18px;cursor:pointer}.f-bot a:first-child{margin-left:0}.f-bot a:hover{color:var(--ink)}
+
+/* modal / toast / top */
+.modal{position:fixed;inset:0;background:rgba(10,18,36,.6);backdrop-filter:blur(6px);z-index:100;display:none;place-items:center;padding:20px}
+.modal.open{display:grid;animation:fade .25s}
+@keyframes fade{from{opacity:0}}
+.m-box{background:var(--bg-2);border-radius:var(--radius);max-width:620px;width:100%;max-height:88vh;overflow:auto;position:relative;animation:pop .3s}
+@keyframes pop{from{transform:translateY(20px) scale(.97);opacity:0}}
+.m-box .art{aspect-ratio:16/8}.m-body{padding:28px 30px 32px}
+.m-body h3{font-size:1.6rem;margin-bottom:10px}.m-body p{color:var(--muted);margin-bottom:14px}
+.m-body ul{margin:0 0 20px 20px;color:var(--muted)}
+.m-close{position:absolute;top:14px;right:14px;z-index:5;background:rgba(255,255,255,.9);color:#14233f}
+.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,120px);background:var(--navy);color:#fff;padding:14px 24px;border-radius:999px;z-index:120;font-size:.9rem;font-weight:600;box-shadow:var(--shadow);transition:transform .4s}
+.toast.show{transform:translate(-50%,0)}
+.totop{position:fixed;right:22px;bottom:22px;z-index:40;opacity:0;pointer-events:none;transition:.3s;background:var(--navy);color:#fff;border:0}
+.totop.show{opacity:1;pointer-events:auto}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--peach));z-index:200;width:0}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* responsive */
+@media(max-width:960px){
+  section{padding:76px 0}
+  .hero-grid,.about-grid,.contact-grid,.news-in{grid-template-columns:1fr;gap:44px}
+  .hero{padding-top:120px}.portrait{max-width:360px;order:-1}
+  .svc-grid{grid-template-columns:1fr}.slots{grid-template-columns:repeat(2,1fr)}
+  .burger{display:grid}.nav .btn{display:none}
+  .menu{position:fixed;inset:0 0 0 auto;width:min(310px,82%);background:var(--bg-2);flex-direction:column;align-items:flex-start;justify-content:center;gap:24px;padding:40px;transform:translateX(100%);transition:transform .4s;box-shadow:-20px 0 50px rgba(0,0,0,.2)}
+  .menu.open{transform:none}.menu a{font-size:1.2rem;color:var(--ink)}
+}
+@media(max-width:640px){
+  .grid2{grid-template-columns:1fr}.cards3{grid-template-columns:1fr}.row2{grid-template-columns:1fr}
+  .badge.b1{left:-8px}.badge.b2{right:-8px}
+  .nform{flex-direction:column;border-radius:24px}.nform .btn{justify-content:center}
+  .testi{padding:40px 22px}.cta-box{padding:54px 22px;border-radius:26px}
+  .f-bot{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header id="header">
+  <div class="container nav">
+    <a href="#home" class="logo"><i>S</i>Sudhir</a>
+    <ul class="menu" id="menu">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#newsletter">Blog</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="theme" aria-label="Toggle dark mode">🌙</button>
+      <a href="#contact" class="btn btn-primary">Let's Connect <span class="arr">→</span></a>
+      <button class="icon-btn burger" id="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- 1. HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="pill reveal"><b></b> Creative Designer &amp; Aspiring Digital Creator</div>
+      <h1 class="reveal d1">Ideas Designed for a <span class="swap" id="swap">Kinder</span>, <br>Bolder Tomorrow</h1>
+      <p class="lead reveal d2">I'm Sudhir, a creative designer and aspiring digital creator passionate about design, technology, creativity, and building meaningful digital experiences.</p>
+      <p class="lead reveal d2" style="margin-bottom:22px">I believe thoughtful design can communicate ideas, inspire people, and create a positive impact.</p>
+      <div class="tagline reveal d2">Design a brighter tomorrow</div>
+      <div class="hero-btns reveal d3">
+        <a href="#work" class="btn btn-primary">Explore My Work <span class="arr">→</span></a>
+        <a href="#contact" class="btn btn-ghost">Let's Connect</a>
+      </div>
+      <div class="stats reveal d3">
+        <div><b>3</b><span>Core services</span></div>
+        <div><b>4</b><span>Concept projects</span></div>
+        <div><b>100%</b><span>Thoughtful design</span></div>
+      </div>
+    </div>
+    <div class="portrait reveal d2">
+      <div class="blob a"></div><div class="blob b"></div>
+      <div class="frame" id="frame">
+        <!-- Put your photo in the same folder as this file and name it sudhir.jpg -->
+        <img src="sudhir.jpg" alt="Portrait of Sudhir" onerror="document.getElementById('frame').classList.add('nophoto')">
+        <div class="mono">S</div>
+      </div>
+      <div class="badge b1"><span>🎨</span> Brand Identity</div>
+      <div class="badge b2"><span>💻</span> Website Design</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Brand Identity</span><span>Website Design</span><span>Content &amp; Strategy</span><span>Minimalist Design</span><span>User-Centered</span><span>Creative Thinking</span>
+    <span>Brand Identity</span><span>Website Design</span><span>Content &amp; Strategy</span><span>Minimalist Design</span><span>User-Centered</span><span>Creative Thinking</span>
+  </div>
+</div>
+
+<!-- 2. ABOUT -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-visual reveal">
+      <div class="shape s1"></div><div class="shape s2"></div><div class="shape s3"></div>
+      <q>Design is how I turn ideas into opportunities.</q>
+    </div>
+    <div class="reveal d1">
+      <div class="eyebrow">About Me</div>
+      <h2 class="sec-title">Creativity Meets Purpose</h2>
+      <p>Hi, I'm Sudhir. I'm passionate about exploring the intersection of design, technology, and creativity to create meaningful digital experiences.</p>
+      <p>For me, great design goes beyond aesthetics. It's about communicating ideas clearly, solving problems thoughtfully, and creating experiences that connect with people.</p>
+      <p>I'm interested in developing my creative skills, exploring new technologies, and turning ideas into purposeful digital solutions.</p>
+      <h3 style="font-size:1.2rem;margin-top:26px;font-family:'Plus Jakarta Sans'">My Approach</h3>
+      <div class="cards3">
+        <div class="mini"><div class="ico">💡</div><h3>Creative Thinking</h3><p>Exploring ideas and creative possibilities.</p></div>
+        <div class="mini"><div class="ico">🔍</div><h3>Attention to Detail</h3><p>Valuing clarity, consistency, and thoughtful design.</p></div>
+        <div class="mini"><div class="ico">🤝</div><h3>User-Centered Design</h3><p>Focusing on meaningful and accessible experiences.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WORK -->
+<section class="work" id="work">
+  <div class="container">
+    <div class="work-head reveal">
+      <div>
+        <div class="eyebrow">Selected Work</div>
+        <h2 class="sec-title">A Collection of Creative Ideas</h2>
+        <p class="sec-sub">Explore a selection of branding and digital design concepts that reflect a minimalist, thoughtful, and modern creative direction.</p>
+      </div>
+      <div class="filters" id="filters">
+        <button class="chip on" data-f="all">All</button>
+        <button class="chip" data-f="branding">Branding</button>
+        <button class="chip" data-f="web">Website</button>
+      </div>
+    </div>
+    <div class="grid2" id="projects">
+      <article class="project reveal" data-cat="branding" data-id="lume">
+        <div class="art lume"><span class="o o1"></span><span class="o o2"></span><span class="word">LUME</span></div>
+        <div class="info"><div><h3>Lume — Beauty Brand Identity</h3><p>A beauty branding concept focused on elegance, visual consistency, and refined presentation.</p></div><span class="tag">Branding</span></div>
+      </article>
+      <article class="project reveal d1" data-cat="web" data-id="oak">
+        <div class="art oak"><span class="o o1"></span><span class="o o2"></span><span class="word">Oak &amp; Bloom</span></div>
+        <div class="info"><div><h3>Oak &amp; Bloom — Website Design</h3><p>A website design concept combining clean layouts with a natural, welcoming aesthetic.</p></div><span class="tag">Website</span></div>
+      </article>
+      <article class="project reveal" data-cat="branding" data-id="solea">
+        <div class="art solea"><span class="o o1"></span><span class="o o2"></span><span class="word">Solea</span></div>
+        <div class="info"><div><h3>Solea — Skincare Branding</h3><p>A skincare branding concept inspired by simplicity, clarity, and a refined visual identity.</p></div><span class="tag">Branding</span></div>
+      </article>
+      <article class="project reveal d1" data-cat="branding" data-id="verdant">
+        <div class="art verdant"><span class="o o1"></span><span class="o o2"></span><span class="word">Verdant</span></div>
+        <div class="info"><div><h3>Verdant — Sustainable Brand Identity</h3><p>A sustainable branding concept emphasizing nature-inspired visuals and purposeful design.</p></div><span class="tag">Branding</span></div>
+      </article>
+    </div>
+    <div class="work-cta reveal"><button class="btn btn-primary" id="allProjects">View All Projects <span class="arr">→</span></button></div>
+  </div>
+</section>
+
+<!-- 4. SERVICES -->
+<section id="services">
+  <div class="container center">
+    <div class="eyebrow reveal">Services</div>
+    <h2 class="sec-title reveal d1">Creative Solutions for Meaningful Brands</h2>
+    <p class="sec-sub reveal d2">Clear, thoughtful design services to help your ideas find their audience.</p>
+    <div class="svc-grid" style="text-align:left">
+      <div class="svc reveal">
+        <div class="num">01</div><h3>Brand Identity</h3>
+        <p>Logo design, visual identity, and brand guidelines to establish a consistent brand presence.</p>
+        <div class="price">$350 <small>/ project</small></div>
+        <a href="#contact" class="btn btn-ghost" data-service="Brand Identity">Get Started <span class="arr">→</span></a>
+      </div>
+      <div class="svc feat reveal d1">
+        <div class="num">02</div><h3>Website Design</h3>
+        <p>Beautiful, responsive website designs focused on clarity, usability, and visual appeal.</p>
+        <div class="price">$500 <small>/ project</small></div>
+        <a href="#contact" class="btn btn-primary" data-service="Website Design">Get Started <span class="arr">→</span></a>
+      </div>
+      <div class="svc reveal d2">
+        <div class="num">03</div><h3>Content &amp; Strategy</h3>
+        <p>Creative content and digital strategy to communicate ideas and support a consistent online presence.</p>
+        <div class="price">$300 <small>/ project</small></div>
+        <a href="#contact" class="btn btn-ghost" data-service="Content & Strategy">Get Started <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CLIENTS -->
+<section class="soft" id="clients">
+  <div class="container center">
+    <div class="eyebrow reveal">Trusted by Amazing Clients</div>
+    <h2 class="sec-title reveal d1">Built Around Creative Possibilities</h2>
+    <p class="sec-sub reveal d2">A space to showcase brands, collaborations, and client partnerships as they are established.</p>
+    <div class="slots reveal">
+      <div class="slot">Your Brand Here</div><div class="slot">Your Brand Here</div><div class="slot">Your Brand Here</div><div class="slot">Your Brand Here</div>
+    </div>
+
+    <!-- 6. TESTIMONIALS -->
+    <div class="eyebrow reveal" style="margin-top:90px">Testimonials</div>
+    <h2 class="sec-title reveal d1">What My Clients Say</h2>
+    <div class="testi reveal">
+      <strong>Genuine feedback, coming soon</strong>
+      <p>A dedicated section for genuine client feedback, highlighting collaboration, communication, and project outcomes.</p>
+      <p style="margin-top:10px">Client testimonials and profile details will be added when verified reviews are available.</p>
+      <div class="stars">★ ★ ★ ★ ★</div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CTA -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-box reveal">
+      <div class="eyebrow" style="justify-content:center;color:var(--navy)">Let's Work Together</div>
+      <h2>Let's Create Something Meaningful</h2>
+      <p>Have a project in mind or simply want to say hello? I'd love to hear from you. Let's explore ideas, exchange perspectives, and create something thoughtful together.</p>
+      <a href="#contact" class="btn btn-primary">Get in Touch <span class="arr">→</span></a>
+      <span class="hint">Good Things Happen Here.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 8. CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="center">
+      <div class="eyebrow reveal">Contact &amp; Social Media</div>
+      <h2 class="sec-title reveal d1">Let's Connect</h2>
+      <p class="sec-sub reveal d2">Have a project in mind, a creative idea to discuss, or simply want to say hello? I'd love to hear from you. Let's connect and explore creative possibilities.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <a class="c-item" href="tel:+918925772503"><div class="ico">📞</div><div><small>Phone</small><b>+91 89257 72503</b></div></a>
+        <a class="c-item" href="mailto:cssudhir@proton.me"><div class="ico">✉️</div><div><small>Email</small><b>cssudhir@proton.me</b></div></a>
+        <h3 style="font-family:'Plus Jakarta Sans';font-size:1rem;margin-top:26px">Social Media</h3>
+        <div class="socials">
+          <a href="https://www.instagram.com/cs_sudhir_offl" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.linkedin.com/in/cs-sudhir" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/cssudhir.sudhir" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://x.com/CSSudhir360" target="_blank" rel="noopener">X</a>
+          <a href="https://pin.it/2wCJLhcTy" target="_blank" rel="noopener">Pinterest</a>
+          <a href="https://www.reddit.com/user/cs_sudhir/" target="_blank" rel="noopener">Reddit</a>
+        </div>
+      </div>
+      <form class="card reveal d1" id="contactForm" novalidate>
+        <div class="row2">
+          <div class="field"><label for="cName">Your name</label><input id="cName" required placeholder="Jane Doe"></div>
+          <div class="field"><label for="cEmail">Email</label><input id="cEmail" type="email" required placeholder="you@email.com"></div>
+        </div>
+        <div class="field"><label for="cService">I'm interested in</label>
+          <select id="cService"><option>Just saying hello</option><option>Brand Identity</option><option>Website Design</option><option>Content & Strategy</option></select></div>
+        <div class="field"><label for="cMsg">Message</label><textarea id="cMsg" required placeholder="Tell me about your idea..."></textarea></div>
+        <button class="btn btn-primary" type="submit">Send Message <span class="arr">→</span></button>
+        <p class="note" id="cNote">This opens your email app with the message ready to send to Sudhir.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 9. NEWSLETTER -->
+<section class="news" id="newsletter">
+  <div class="container news-in">
+    <div class="reveal">
+      <div class="eyebrow" style="color:var(--teal)">Newsletter</div>
+      <h2>A Little Inspiration in Your Inbox</h2>
+      <p>Get creative tips and updates straight to your inbox.</p>
+    </div>
+    <div class="reveal d1">
+      <form class="nform" id="newsForm" novalidate>
+        <input type="email" id="nEmail" placeholder="Your email address" aria-label="Your email address" required>
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+      <div class="msg" id="nMsg" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- 10. FOOTER -->
+<footer>
+  <div class="container">
+    <div class="f-top">
+      <div><a href="#home" class="logo"><i>S</i>Sudhir</a><div class="tg">DESIGN A BRIGHTER TOMORROW</div></div>
+      <ul class="f-links">
+        <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#work">Work</a></li>
+        <li><a href="#newsletter">Blog</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-bot">
+      <span>© 2026 Sudhir. All rights reserved.</span>
+      <span><a data-modal="privacy">Privacy Policy</a><a data-modal="terms">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<button class="icon-btn totop" id="totop" aria-label="Back to top">↑</button>
+<div class="toast" id="toast"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="m-box" id="mBox"></div></div>
+
+<script>
+const $ = (s, c=document) => c.querySelector(s), $$ = (s, c=document) => [...c.querySelectorAll(s)];
+const toast = (t) => { const el=$('#toast'); el.textContent=t; el.classList.add('show'); clearTimeout(toast.t); toast.t=setTimeout(()=>el.classList.remove('show'),3200); };
+
+/* theme */
+try{ if(localStorage.getItem('theme')==='dark'){document.documentElement.dataset.theme='dark'} }catch(e){}
+const themeBtn=$('#theme');
+const syncTheme=()=>themeBtn.textContent=document.documentElement.dataset.theme==='dark'?'☀️':'🌙';
+syncTheme();
+themeBtn.onclick=()=>{const d=document.documentElement.dataset.theme==='dark';
+  if(d) delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme='dark';
+  try{localStorage.setItem('theme',d?'light':'dark')}catch(e){} syncTheme();};
+
+/* mobile menu */
+const menu=$('#menu'), burger=$('#burger');
+burger.onclick=()=>{menu.classList.toggle('open'); burger.textContent=menu.classList.contains('open')?'✕':'☰'};
+$$('#menu a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.textContent='☰'}));
+
+/* scroll: header, progress, to-top, active link */
+const header=$('#header'), prog=$('#progress'), totop=$('#totop');
+const links=$$('#menu a'); const secs=links.map(a=>$(a.getAttribute('href')));
+function onScroll(){
+  const y=scrollY, h=document.documentElement.scrollHeight-innerHeight;
+  header.classList.toggle('scrolled',y>20); prog.style.width=(y/h*100)+'%'; totop.classList.toggle('show',y>600);
+  let cur=0; secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<innerHeight*.4) cur=i; });
+  links.forEach((a,i)=>a.classList.toggle('active',i===cur));
+}
+addEventListener('scroll',onScroll,{passive:true}); onScroll();
+totop.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.reveal').forEach(el=>io.observe(el));
+
+/* hero word swap */
+const words=['Kinder','Bolder','Brighter'], sw=$('#swap'); let wi=0;
+setInterval(()=>{sw.classList.add('out');setTimeout(()=>{wi=(wi+1)%words.length;sw.textContent=words[wi];sw.classList.remove('out')},350)},2600);
+
+/* project filters */
+$$('#filters .chip').forEach(c=>c.onclick=()=>{
+  $$('#filters .chip').forEach(x=>x.classList.remove('on')); c.classList.add('on');
+  $$('.project').forEach(p=>p.classList.toggle('hide',c.dataset.f!=='all'&&p.dataset.cat!==c.dataset.f));
+});
+
+/* modals */
+const modal=$('#modal'), mBox=$('#mBox');
+const projects={
+  lume:{cls:'lume',w:'LUME',t:'Lume — Beauty Brand Identity',d:'A beauty branding concept focused on elegance, visual consistency, and refined presentation.',l:['Logo & wordmark exploration','Soft warm colour palette','Typography and spacing system','Packaging and social presentation ideas']},
+  oak:{cls:'oak',w:'Oak & Bloom',t:'Oak & Bloom — Website Design',d:'A website design concept combining clean layouts with a natural, welcoming aesthetic.',l:['Responsive page layouts','Calm, nature-inspired palette','Clear navigation and readable type','Accessible, user-centered structure']},
+  solea:{cls:'solea',w:'Solea',t:'Solea — Skincare Branding',d:'A skincare branding concept inspired by simplicity, clarity, and a refined visual identity.',l:['Minimal logo concept','Warm, glowing colour story','Label and layout principles','Consistent brand voice']},
+  verdant:{cls:'verdant',w:'Verdant',t:'Verdant — Sustainable Brand Identity',d:'A sustainable branding concept emphasizing nature-inspired visuals and purposeful design.',l:['Nature-inspired visual language','Deep green colour system','Purpose-led messaging direction','Flexible brand guidelines']}
+};
+const closeBtn='<button class="icon-btn m-close" aria-label="Close">✕</button>';
+function openModal(html){mBox.innerHTML=closeBtn+html;modal.classList.add('open');document.body.style.overflow='hidden';$('.m-close',mBox).onclick=closeModal}
+function closeModal(){modal.classList.remove('open');document.body.style.overflow=''}
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+function projectHTML(p){return `<div class="art ${p.cls}"><span class="o o1"></span><span class="o o2"></span><span class="word">${p.w}</span></div>
+<div class="m-body"><h3>${p.t}</h3><p>${p.d}</p><ul>${p.l.map(x=>`<li>${x}</li>`).join('')}</ul>
+<a href="#contact" class="btn btn-primary" onclick="closeModal()">Start a similar project <span class="arr">→</span></a></div>`}
+$$('.project').forEach(el=>el.onclick=()=>openModal(projectHTML(projects[el.dataset.id])));
+$('#allProjects').onclick=()=>openModal(`<div class="m-body" style="padding-top:56px"><h3>All Projects</h3><p>A growing collection of concept work. New projects will be added here as they are completed.</p>
+<ul>${Object.values(projects).map(p=>`<li><b>${p.t}</b></li>`).join('')}</ul>
+<a href="#contact" class="btn btn-primary" onclick="closeModal()">Discuss your project <span class="arr">→</span></a></div>`);
+const legal={
+  privacy:['Privacy Policy','This website does not collect personal data on its own. If you send a message, it is shared only through your own email app. If you subscribe to the newsletter, your email address will be used only to send creative tips and updates, and you can ask to be removed at any time by emailing cssudhir@proton.me.'],
+  terms:['Terms','All designs, text and concepts on this website are the property of Sudhir unless stated otherwise and may not be reused without permission. Project concepts shown here are for portfolio purposes. Service pricing is a starting guide and may vary with project scope.']
+};
+$$('[data-modal]').forEach(a=>a.onclick=()=>{const [t,b]=legal[a.dataset.modal];openModal(`<div class="m-body" style="padding-top:56px"><h3>${t}</h3><p>${b}</p></div>`)});
+
+/* service buttons prefill contact */
+$$('[data-service]').forEach(b=>b.addEventListener('click',()=>{$('#cService').value=b.dataset.service}));
+
+/* contact form -> mailto */
+$('#contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const n=$('#cName').value.trim(), m=$('#cEmail').value.trim(), s=$('#cService').value, msg=$('#cMsg').value.trim();
+  if(!n||!/^\S+@\S+\.\S+$/.test(m)||!msg){toast('Please fill in your name, a valid email and a message.');return}
+  const body=`Hi Sudhir,\n\n${msg}\n\n— ${n} (${m})`;
+  location.href=`mailto:cssudhir@proton.me?subject=${encodeURIComponent('Portfolio enquiry: '+s)}&body=${encodeURIComponent(body)}`;
+  toast('Opening your email app…');
+});
+
+/* newsletter (front-end only: connect to a service like Mailchimp/Formspree to collect emails) */
+$('#newsForm').addEventListener('submit',e=>{
+  e.preventDefault(); const v=$('#nEmail').value.trim(), m=$('#nMsg');
+  if(!/^\S+@\S+\.\S+$/.test(v)){m.style.color='#ffb4a2';m.textContent='Please enter a valid email address.';return}
+  m.style.color='#a9dcd6';m.textContent='Thank you for subscribing! 🎉'; $('#nEmail').value='';
+});
+</script>
+</body>
+</html>
